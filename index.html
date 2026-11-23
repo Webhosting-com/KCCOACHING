@@ -1451,22 +1451,22 @@ const mapUrl = v => `https://www.google.com/maps/search/${encodeURIComponent(VEN
    cfk: class id on ClassForKids (null = links to the main ClassForKids page until the class link is confirmed)
    price: monthly price in £ (null = to confirm) */
 const SESSIONS = [
-  {id:'tod-1',  prog:'toddler', title:'Toddler Training',        min:2, max:5,  venue:'calton',   day:0, start:'10:00', end:'10:40', trial:true, cfk:null, price:26},
-  {id:'tod-2',  prog:'toddler', title:'Toddler Training',        min:2, max:5,  venue:'calton',   day:0, start:'10:45', end:'11:25', trial:true, cfk:62,   price:26},
-  {id:'grp-chel',prog:'group',  title:'Group Session — Cheltenham', min:6, max:12, venue:'tigers', day:1, start:'18:00', end:'19:00', trial:true, cfk:null, price:null},
-  {id:'grp-wed', prog:'group',  title:'Group Session — Gloucester', min:6, max:12, venue:'tuffley',day:3, start:'18:00', end:'19:00', trial:true, waitlist:true, cfk:null, price:null},
-  {id:'grp-fri', prog:'group',  title:'Group Session — Gloucester', min:6, max:12, venue:'tuffley',day:5, start:'18:00', end:'19:00', trial:true, cfk:null, price:null},
-  {id:'girls-thu',prog:'girls', title:'Girls Only Group',        min:7, max:13, venue:'tuffley',  day:4, start:'18:00', end:'19:00', trial:true, cfk:93,   price:25},
+  {id:'tod-1',  prog:'toddler', title:'Toddler Training',        min:2, max:5,  venue:'calton',   day:0, start:'10:00', end:'10:40', trial:true, cfk:61, price:26},
+  {id:'tod-2',  prog:'toddler', title:'Toddler Training',        min:2, max:5,  venue:'calton',   day:0, start:'10:45', end:'11:25', trial:true, cfk:62, price:26},
+  {id:'grp-chel',prog:'group',  title:'Group Session — Cheltenham', min:6, max:12, venue:'tigers', day:1, start:'18:00', end:'19:00', trial:true, cfk:100, price:25},
+  {id:'grp-wed', prog:'group',  title:'Group Session — Gloucester', min:6, max:12, venue:'tuffley',day:3, start:'18:00', end:'19:00', trial:true, waitlist:true, cfk:92, price:25},
+  {id:'grp-fri', prog:'group',  title:'Group Session — Gloucester', min:6, max:12, venue:'tuffley',day:5, start:'18:00', end:'19:00', trial:true, cfk:91, price:25},
+  {id:'girls-thu',prog:'girls', title:'Girls Only Group',        min:7, max:13, venue:'tuffley',  day:4, start:'18:00', end:'19:00', trial:true, cfk:93, price:25},
   {id:'elite-u7', prog:'elite', title:'Elite Group U7–U9',       min:7, max:9,  venue:'tuffley',  day:5, start:'18:00', end:'19:00', trial:true, cfk:null, price:null},
-  {id:'elite-u10',prog:'elite', title:'Elite Group U10–U12',     min:10,max:12, venue:'tuffley',  day:5, start:'18:30', end:'19:30', trial:true, cfk:null, price:null},
-  {id:'elite-u13',prog:'elite', title:'Elite Group U13–U16',     min:13,max:16, venue:'tuffley',  day:5, start:'18:00', end:'19:00', trial:true, cfk:89,   price:60},
-  {id:'gk-fri',  prog:'gk',     title:'Goalkeeper Group',        min:6, max:18, venue:'tuffley',  day:5, start:'19:00', end:'20:00', trial:true, cfk:80,   price:25},
-  {id:'gk-sun',  prog:'gk',     title:'Goalkeeper Group',        min:6, max:18, venue:'beaufort', day:0, start:'15:00', end:'16:00', trial:true, cfk:81,   price:25},
-  {id:'sc-mon',  prog:'sc',     title:'Football-Specific S&C',   min:7, max:18, venue:'tuffley',  day:1, start:'19:00', end:'20:00', cfk:null, price:null},
-  {id:'sc-fri',  prog:'sc',     title:'Football-Specific S&C',   min:7, max:18, venue:'tuffley',  day:5, start:'19:00', end:'20:00', cfk:null, price:null},
-  {id:'sc-sun',  prog:'sc',     title:'Football-Specific S&C',   min:7, max:18, venue:'beaufort', day:0, start:'15:00', end:'16:00', cfk:null, price:null},
+  {id:'elite-u10',prog:'elite', title:'Elite Group U10–U12',     min:10,max:12, venue:'tuffley',  day:5, start:'18:30', end:'19:30', trial:true, cfk:88, price:60},
+  {id:'elite-u13',prog:'elite', title:'Elite Group U13–U16',     min:13,max:16, venue:'tuffley',  day:5, start:'18:00', end:'19:00', trial:true, cfk:89, price:60},
+  {id:'gk-fri',  prog:'gk',     title:'Goalkeeper Group',        min:6, max:18, venue:'tuffley',  day:5, start:'19:00', end:'20:00', trial:true, cfk:80, price:25},
+  {id:'gk-sun',  prog:'gk',     title:'Goalkeeper Group',        min:6, max:18, venue:'beaufort', day:0, start:'15:00', end:'16:00', trial:true, cfk:81, price:25},
+  {id:'sc-mon',  prog:'sc',     title:'Football-Specific S&C',   min:7, max:18, venue:'tuffley',  day:1, start:'19:00', end:'20:00', cfk:99, price:45},
+  {id:'sc-fri',  prog:'sc',     title:'Football-Specific S&C',   min:7, max:18, venue:'tuffley',  day:5, start:'19:00', end:'20:00', cfk:98, price:45},
+  {id:'sc-sun',  prog:'sc',     title:'Football-Specific S&C',   min:7, max:18, venue:'beaufort', day:0, start:'15:00', end:'16:00', cfk:97, price:45},
 ];
-const ONE2ONE_CFK = null; /* ClassForKids id for "1-1 coaching – Rolling programme" once confirmed */
+const ONE2ONE_CFK = 77; /* ClassForKids id for "1-1 coaching – Rolling programme" once confirmed */
 const sessUrl = s => s.cfk ? CFK(s.cfk) : CFK_HOME;
 
 const PROGS = {

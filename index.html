@@ -779,7 +779,16 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
 .ms span{display:block;padding:2px 14px 14px;font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em}
 @media (max-width:900px){.more-svc{grid-template-columns:1fr 1fr}}
 #modal h4{margin-top:14px}
-.quotes.q4{grid-template-columns:repeat(4,1fr);margin-top:20px}
+.key-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.key-grid div{background:#000;color:#fff;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.key-grid b{color:var(--lime);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.key-grid span{font-weight:700;font-size:.95rem}
+@media (max-width:900px){.key-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.key-grid{grid-template-columns:1fr}}
+.blog-link{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px}
+.blog-link h3{font-size:1.7rem;margin:6px 0 4px}
+.blog-link p{color:var(--muted)}
+.quotes.q4{grid-template-columns:repeat(3,1fr);margin-top:20px}
 .quotes.q4 .quote{grid-column:auto!important;grid-row:auto!important}
 @media (max-width:1000px){.quotes.q4{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.quotes.q4{grid-template-columns:1fr}}
@@ -1101,6 +1110,16 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
         <div class="stars">★★★★★</div>
         <blockquote>My son Raffy loves KC Coaching. Reece is fantastic, friendly and professional. I would highly recommend and would like to thank Reece especially for the exceptional coaching every week :)</blockquote>
         <cite>Webby 10 Road to glory<span>Google review · parent</span></cite>
+      </figure>
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote>Have only been going to this for a month or so, and it's already a massive improvement over the Cheltenham Hartpury set up. My lad gets involved in more drills, has more feedback, and plays with like-minded players. Have been very impressed so far.</blockquote>
+        <cite>Dean McClymont<span>Google review · parent</span></cite>
+      </figure>
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote>Highly recommended!!</blockquote>
+        <cite>Marco Riselli<span>Google review · parent</span></cite>
       </figure>
     </div>
   </div>
@@ -1886,6 +1905,40 @@ if('IntersectionObserver' in window){
    To add a post: copy one object below; newest first. Body is simple HTML. */
 const WX = f => (LOCAL_IMG[f]||`https://static.wixstatic.com/media/${f}/v1/fill/w_1200,h_750,al_c,q_80/cover.jpg`);
 const POSTS = [
+  {slug:'jpl-programme', title:"KC Coaching JPL: take the step up from grassroots", cat:'News', date:'2026-11-21', read:3,
+   img:'247d34_68b2bfd3a557412a8db2199865695635~mv2.jpeg',
+   excerpt:"Our Junior Premier League teams from U9 to U12 give ambitious players competitive football in a supportive environment. Here's everything you need to know.",
+   body:`<p class="lead">Do you have what it takes to take the step up from grassroots? The KC Coaching JPL programme gives ambitious young players the opportunity to challenge themselves, develop their game and experience competitive football in a supportive environment.</p>
+<p>We’re looking for players who are committed, willing to learn and ready to work hard for their team. Whether you’re looking to take your first step into a more competitive level or continue developing your football, we’d love to hear from you.</p>
+<h2>What players can expect</h2>
+<ul><li>Challenging, competitive football</li><li>Regular coaching and opportunities to develop</li><li>Support to improve technical ability, decision-making and confidence</li><li>A positive team environment built around commitment, respect and hard work</li></ul>
+<h2>Teams &amp; training</h2>
+<p><strong>JPL U9s</strong> — Tuesday 5–6pm, Waterwells Sports Centre (Stephenson Drive, Quedgeley, GL2 2AG) · Thursday 5–6:30pm, Tuffley Rovers Football Club (Lower Tuffley Lane, GL2 5DP)</p>
+<p><strong>JPL U10s</strong> — Tuesday 5–6pm, Waterwells Sports Centre · Friday 5–6pm, Henley Bank School (Mill Lane, Brockworth, GL3 4QF)</p>
+<p><strong>JPL U11s</strong> — Tuesday 6–7pm, Henley Bank School · Thursday 5–6:30pm, Tuffley Rovers Football Club</p>
+<p><strong>JPL U12s</strong> — Tuesday 6–7pm, Henley Bank School · Thursday 6:30–8pm, Tuffley Rovers Football Club</p>
+<h2>Request a JPL trial</h2>
+<p>Trials are open for all age groups. <a href="#service/jpl/trial">Request a JPL trial</a> and a member of the KC Coaching team will be in touch to arrange it — or <a href="https://wa.me/447476997864" target="_blank" rel="noopener">message us on WhatsApp</a>.</p>`},
+  {slug:'grassroots-programme', title:"Introducing KC Coaching Grassroots Football", cat:'News', date:'2026-11-19', read:3,
+   img:'a6a94c_5b22d7e4753d4a449fccc47b8c587116~mv2.jpg',
+   excerpt:"Enjoy your football, develop your game and be part of a team. Our grassroots programme welcomes players new to the game and those already playing.",
+   body:`<p class="lead">Enjoy your football. Develop your game. Be part of a team. Our grassroots programme gives young players the opportunity to learn, improve and enjoy football in a positive, supportive team environment.</p>
+<p>We welcome players who are keen to get involved, build their confidence and develop their skills. Whether they’re new to the game or already playing, our coaches will encourage them to learn, work hard and enjoy being part of a team.</p>
+<h2>What players can expect</h2>
+<ul><li>Fun, engaging football sessions</li><li>Regular coaching and opportunities to improve</li><li>Support to build football skills, decision-making and confidence</li><li>A welcoming team environment built around respect, effort and enjoyment</li></ul>
+<h2>Teams &amp; training</h2>
+<p><strong>KC U9s</strong> — Tuesday 5–6pm, Waterwells Sports Centre (Stephenson Drive, Quedgeley, GL2 2AG) · Thursday 5–6:30pm, Tuffley Rovers Football Club (Lower Tuffley Lane, GL2 5DP)</p>
+<p><strong>KC U12s</strong> — Tuesday 6–7pm, Henley Bank School (Mill Lane, Brockworth, GL3 4QF) · Thursday 6:30–8pm, Tuffley Rovers Football Club</p>
+<h2>Interested in joining us?</h2>
+<p><a href="#service/grassroots/trial">Request a trial</a> and a member of the KC Coaching team will be in touch to discuss the next steps and arrange a suitable trial.</p>`},
+  {slug:'strength-conditioning', title:"New: football-specific strength & conditioning", cat:'News', date:'2026-11-12', read:2,
+   img:'247d34_8b16ea7be0684936b297eb211117f47e~mv2.jpeg',
+   excerpt:"Our S&C sessions help players aged 7–18 build speed, power, agility and injury resilience — three sessions a week across Gloucester.",
+   body:`<p class="lead">Our football-specific strength and conditioning sessions help players aged 7–18 develop the athletic qualities the modern game demands.</p>
+<p>Sessions are age-appropriate and led by our Strength &amp; Conditioning coach, with a focus on movement quality, speed, agility, power and injury prevention.</p>
+<h2>When &amp; where</h2>
+<ul><li><strong>Monday</strong> 7–8pm — Tuffley Rovers Football Club</li><li><strong>Friday</strong> 7–8pm — Tuffley Rovers Football Club</li><li><strong>Sunday</strong> 3–4pm — Beaufort Playing Fields</li></ul>
+<p>£45 per month, booked on ClassForKids. <a href="#book/sc">See sessions &amp; book</a>.</p>`},
   {slug:'first-session-what-to-expect', title:"What to expect at your first KC session", cat:"Parents' guide", date:'2026-11-03', read:4,
    img:'247d34_3121312a764f4c2aa06980c0bd85dd45~mv2.jpeg',
    excerpt:"Arriving, the session itself and pick-up — here's exactly how a first session with KC Coaching works, for children and adults alike.",
@@ -2273,9 +2326,15 @@ function renderServicePage(k){
       <div class="cls-list">${sessions.map(sessCard).join('')}</div></section>`;
   if(k==='one2one') h+=`<section class="sp-sec"><span class="eyebrow">Prices</span><h2>Choose your plan</h2><div class="price-grid light">${priceCards()}</div>
       <p class="sp-note">Adults welcome. Prefer a block or have questions? <a href="#book/enquire/one2one">Send an enquiry</a> or <a href="#book/enquire/adult">enquire about adult 1-to-1s</a>.</p></section>`;
+  if(v.team){ const T=TEAMS[v.team], vs=[...new Set(T.flatMap(t=>t.train.map(r=>VENUES[r.venue].name)))], ds=[...new Set(T.flatMap(t=>t.train.map(r=>r.day)))];
+    h+=`<section class="sp-sec"><span class="eyebrow">Key details</span><div class="key-grid">
+      <div><b>Age groups</b><span>${T.map(t=>t.name.replace(/^(JPL|KC) /,'')).join(', ')}</span></div>
+      <div><b>Training days</b><span>${ds.length>1?ds.slice(0,-1).join(', ')+' & '+ds[ds.length-1]:ds[0]}</span></div>
+      <div><b>Venues</b><span>${vs.join(' · ')}</span></div>
+      <div><b>How to join</b><span>Request a trial below — we’ll be in touch to arrange it</span></div></div></section>`; }
   if(v.team) h+=`<section class="sp-sec"><span class="eyebrow">Our teams</span><h2>Teams &amp; training</h2><div class="team-cards">${teamCards(k)}</div></section>
     ${trialForm(k)}
-    <section class="sp-sec" id="news-sec"><span class="eyebrow">${k==='jpl'?'JPL':'Grassroots'} news</span><h2>News &amp; updates</h2><p class="sp-note">Team news, match updates, results and important announcements.</p><div id="newsWrap">${newsHtml(k)}</div></section>`;
+    <section class="sp-sec"><div class="blog-link"><div><span class="eyebrow">Latest news</span><h3>Read more on the KC blog</h3><p>Programme news, updates and announcements.</p></div><a class="btn btn-dark btn-sm" href="#blog/${k==='jpl'?'jpl-programme':'grassroots-programme'}">Read the ${k==='jpl'?'JPL':'Grassroots'} article →</a></div></section>`;
   if(v.cta==='enquire') h+=`<section class="sp-sec cta-band on-dark"><div><h2>Interested?</h2><p>Send us a quick enquiry and we’ll be in touch with dates, prices and details.</p></div><div class="ctas">${svcCta(k)}<a class="btn btn-wa btn-sm" href="${WA('Hi KC Coaching, I\'m interested in '+v.name)}" target="_blank" rel="noopener">${WA_ICON} WhatsApp</a></div></section>`;
   h+=`<section class="sp-sec"><span class="eyebrow">Explore more</span><h2>Other programmes</h2><div class="more-svc">${others.map(x=>{const oi=svcImg(x,500,320);return `<a href="#service/${x}" class="ms"><div class="ms-img"${oi?` style="background-image:url('${oi}')"`:''}>${oi?'':phTile('')}</div><b>${esc(SVC[x].name)}</b><span>${esc(SVC[x].tag)}</span></a>`}).join('')}</div></section></div>`;
   document.getElementById('svcPage').innerHTML=h;

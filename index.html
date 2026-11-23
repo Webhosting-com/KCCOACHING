@@ -1335,7 +1335,7 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
       <div class="price-grid light" id="bkPriceGrid"></div>
     </section>
     <section class="form-card" id="enquire">
-      <div class="fc-head"><span class="eyebrow">Enquiries</span><h2>Send us an enquiry</h2><p>For 1-to-1 blocks, adult coaching, after-school clubs, camps, birthday parties and school partnerships. We'll reply quickly by phone, email or WhatsApp.</p></div>
+      <div class="fc-head"><span class="eyebrow">Enquiries</span><h2>Send us an enquiry</h2><p>For 1-to-1 blocks, adult coaching, after-school clubs, camps, birthday parties and school partnerships. Fill in your details and your enquiry goes straight to us on WhatsApp.</p></div>
       <form id="enqForm" novalidate>
         <div class="field"><label for="eqType">What are you enquiring about?</label>
           <select id="eqType">
@@ -1352,7 +1352,7 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
           <div class="field"><label for="eqName">Your name</label><input id="eqName" autocomplete="name" required></div>
           <div class="field"><label for="eqPhone">Mobile number</label><input id="eqPhone" type="tel" autocomplete="tel" required></div>
         </div>
-        <div class="field"><label for="eqEmail">Email</label><input id="eqEmail" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="eqEmail">Email <span class="opt">(optional)</span></label><input id="eqEmail" type="email" autocomplete="email"></div>
         <div class="row2">
           <div class="field"><label for="eqPlayer">Player's name <span class="opt">(or "myself")</span></label><input id="eqPlayer"></div>
           <div class="field"><label for="eqAge">Player's age <span class="opt">(optional)</span></label><input id="eqAge" inputmode="numeric"></div>
@@ -1360,9 +1360,9 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
         <div class="field"><label for="eqMsg">How can we help?</label><textarea id="eqMsg" placeholder="Goals, preferred days and times, medical or additional needs…"></textarea></div>
         <label class="check"><input type="checkbox" id="eqConsent"> I agree to KC Coaching contacting me about this enquiry, as set out in the <a href="#" data-privacy>privacy notice</a>.</label>
         <p class="err" id="eqErr">Please complete the highlighted fields.</p>
-        <div class="form-actions"><button type="submit" class="btn btn-lime">Send enquiry</button><a class="btn btn-wa" id="eqWa" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 01-2.4-1.5 9 9 0 01-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 00-.8.4 3.4 3.4 0 00-1 2.5 6 6 0 001.2 3.1 13.4 13.4 0 005.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 002-1.4 2.5 2.5 0 00.2-1.4c0-.1-.3-.2-.6-.4zM12 21.8a9.9 9.9 0 01-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1112 21.8zM12 0a12 12 0 00-10.3 18L0 24l6.2-1.6A12 12 0 1012 0z"/></svg> Send on WhatsApp</a></div>
+        <div class="form-actions"><button type="submit" class="btn btn-wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 01-2.4-1.5 9 9 0 01-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 00-.8.4 3.4 3.4 0 00-1 2.5 6 6 0 001.2 3.1 13.4 13.4 0 005.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 002-1.4 2.5 2.5 0 00.2-1.4c0-.1-.3-.2-.6-.4zM12 21.8a9.9 9.9 0 01-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1112 21.8zM12 0a12 12 0 00-10.3 18L0 24l6.2-1.6A12 12 0 1012 0z"/></svg> Send enquiry on WhatsApp</button><a id="eqWa" hidden></a></div>
       </form>
-      <div class="form-done hidden" id="eqDone"><div class="big">✓</div><h3>Thanks — enquiry sent!</h3><p>A member of the KC Coaching team will be in touch shortly.</p></div>
+      <div class="form-done hidden" id="eqDone"><div class="big">✓</div><h3>Nearly done!</h3><p>WhatsApp has opened with your enquiry written out — just press <b>send</b>. A member of the KC Coaching team will reply shortly.</p><p><a class="btn btn-wa btn-sm" id="eqAgain" target="_blank" rel="noopener">WhatsApp didn’t open? Tap here</a></p></div>
     </section>
   </div>
 </main>
@@ -1399,7 +1399,7 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
       <h4>Why we use it</h4>
       <ul><li>To manage bookings and contact you about sessions</li><li>To place your child in the right age group</li><li>To keep your child safe — medical details are shared only with the coaches running their session</li><li>Photos and videos are only used on social media if you've given consent</li></ul>
       <h4>How it's kept</h4>
-      <p>Booking details are sent securely to our team by email or WhatsApp, and payments are handled by ClassForKids. We don't sell your data or share it for marketing. We keep it only as long as your child trains with us, plus any period required for insurance or safeguarding records.</p>
+      <p>Enquiries and trial requests are sent to our team by WhatsApp, and payments are handled by ClassForKids. We don't sell your data or share it for marketing. We keep it only as long as your child trains with us, plus any period required for insurance or safeguarding records.</p>
       <h4>Your rights</h4>
       <p>You can ask to see, correct or delete your data at any time by emailing <a href="mailto:kccoaching@outlook.com">kccoaching@outlook.com</a>. If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office (ico.org.uk).</p>
     </div>
@@ -1671,10 +1671,6 @@ const COACHES = [
    style:'My sessions set clear expectations while keeping football enjoyable and engaging. I want every player to work hard, feel supported and leave with a smile on their face.',
    facts:{'Position':'Forward / Midfielder — I enjoy attacking positions and adapt to the role the team needs','Proudest achievement':'Receiving positive feedback from parents that their child has enjoyed a session and responded well to my coaching','Ambition':'To make a positive difference to children’s confidence and give them a place where they feel happy, supported and excited to attend','Favourite food':'Pasta','Pre-game song':'House music','Favourite footballer':'Virgil van Dijk','Fun fact':'I only started playing football regularly in November, after playing academy football when I was younger'},
    quals:['Safeguarding Children','First Aid in Football','Enhanced DBS checked']},
-  {name:'Samuel', role:'Coach', img:'a6a94c_233b753c2dff4a2599537e0c28ad1b0d~mv2.jpg',
-   bio:['Sam\'s drive and passion show in his high-tempo coaching style, bringing out the best in individuals.'],
-   facts:{'Position':'Left back','Experience':'Scholarship in the USA; non-league and academy set-ups','Highlight':'Earning a scholarship to play abroad','Pre-game song':'Any form of house music'},
-   quals:['FA Safeguarding','FA Introduction Badge','BTEC Sports Coaching; 2 years into a Sports Coaching degree','Undergoing Level 1 & UEFA C']},
   /* ARCHIVED until photo & profile arrive: {name:'Tungha', role:'Football Coach'} */
 ];
 
@@ -2179,20 +2175,15 @@ function openBook(a,b){
 
 /* enquiry form */
 const enqForm=document.getElementById('enqForm');
-function eqMsg(){ const f=enqForm, t=f.querySelector('#eqType'); return `Hi KC Coaching! Enquiry: ${t.options[t.selectedIndex].text}\n\nName: ${val(f,'eqName')}\nPhone: ${val(f,'eqPhone')}\nEmail: ${val(f,'eqEmail')}${val(f,'eqPlayer')?`\nPlayer: ${val(f,'eqPlayer')}${val(f,'eqAge')?` (age ${val(f,'eqAge')})`:''}`:''}${val(f,'eqMsg')?`\n\n${val(f,'eqMsg')}`:''}`; }
+function eqMsg(){ const f=enqForm, t=f.querySelector('#eqType'); return `Hi KC Coaching! Enquiry: ${t.options[t.selectedIndex].text}\n\nName: ${val(f,'eqName')}\nPhone: ${val(f,'eqPhone')}${val(f,'eqEmail')?`\nEmail: ${val(f,'eqEmail')}`:''}${val(f,'eqPlayer')?`\nPlayer: ${val(f,'eqPlayer')}${val(f,'eqAge')?` (age ${val(f,'eqAge')})`:''}`:''}${val(f,'eqMsg')?`\n\n${val(f,'eqMsg')}`:''}`; }
 function updEqWa(){ document.getElementById('eqWa').href=WA(eqMsg()); }
 enqForm.addEventListener('input',e=>{e.target.classList.remove('bad');e.target.parentElement.classList.remove('bad');updEqWa();});
 enqForm.addEventListener('change',updEqWa); updEqWa();
-enqForm.addEventListener('submit',async e=>{
+enqForm.addEventListener('submit',e=>{
   e.preventDefault(); const err=document.getElementById('eqErr');
-  if(!checkFields(enqForm,['eqName','eqPhone','eqEmail','eqConsent'])){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }
-  err.classList.remove('show'); const btn=enqForm.querySelector('[type=submit]'); btn.disabled=true; btn.textContent='Sending…';
-  const t=enqForm.querySelector('#eqType');
-  const ok=await sendForm(`New enquiry: ${t.options[t.selectedIndex].text} – ${val(enqForm,'eqName')}`,
-    {name:val(enqForm,'eqName'),email:val(enqForm,'eqEmail'),phone:val(enqForm,'eqPhone'),enquiry:t.options[t.selectedIndex].text,player:val(enqForm,'eqPlayer'),age:val(enqForm,'eqAge')}, eqMsg()).catch(()=>false);
-  btn.disabled=false; btn.textContent='Send enquiry';
-  if(ok){ enqForm.classList.add('hidden'); document.getElementById('eqDone').classList.remove('hidden'); }
-  else { err.textContent='Sorry — that didn’t send. Please use the WhatsApp button or call 07476 997864.'; err.classList.add('show'); }
+  if(!checkFields(enqForm,['eqName','eqPhone','eqConsent'])){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }
+  err.classList.remove('show'); const url=WA(eqMsg()); window.open(url,'_blank','noopener');
+  document.getElementById('eqAgain').href=url; enqForm.classList.add('hidden'); document.getElementById('eqDone').classList.remove('hidden');
 });
 
 /* ================= SERVICE PAGES ================= */
@@ -2219,7 +2210,7 @@ function trialForm(k){
     <form id="trialForm" novalidate data-k="${k}">
       <div class="row2"><div class="field"><label for="tParent">Parent or guardian’s name</label><input id="tParent" autocomplete="name"></div>
         <div class="field"><label for="tPhone">Phone number</label><input id="tPhone" type="tel" autocomplete="tel"></div></div>
-      <div class="field"><label for="tEmail">Email address</label><input id="tEmail" type="email" autocomplete="email"></div>
+      <div class="field"><label for="tEmail">Email address <span class="opt">(optional)</span></label><input id="tEmail" type="email" autocomplete="email"></div>
       <div class="row2"><div class="field"><label for="tPlayer">Player’s name</label><input id="tPlayer"></div>
         <div class="field"><label for="tDob">Player’s date of birth or school year</label><input id="tDob" placeholder="e.g. 14/03/2017 or Year 4"></div></div>
       <div class="field"><label for="tTeam">Team or age group they’re interested in</label><select id="tTeam">${TEAMS[v.team].map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('')}<option value="unsure">Not sure — please advise</option></select></div>
@@ -2227,14 +2218,14 @@ function trialForm(k){
       <div class="field"><label for="tNotes">Anything else you’d like us to know? <span class="opt">(optional)</span></label><textarea id="tNotes" placeholder="Medical or additional needs, availability, questions…"></textarea></div>
       <label class="check"><input type="checkbox" id="tConsent"> I consent to KC Coaching contacting me about this trial, as set out in the <a href="#" data-privacy>privacy notice</a>.</label>
       <p class="err" id="tErr"></p>
-      <div class="form-actions"><button type="submit" class="btn btn-lime">${esc(v.trialLabel)}</button><a class="btn btn-wa" id="tWa" target="_blank" rel="noopener">${WA_ICON} Ask on WhatsApp</a></div>
+      <div class="form-actions"><button type="submit" class="btn btn-wa">${WA_ICON} ${esc(v.trialLabel)} on WhatsApp</button><a id="tWa" hidden></a></div>
     </form>
-    <div class="form-done hidden" id="tDone"><div class="big">✓</div><h3>Trial request sent!</h3><p>Thank you — a member of the KC Coaching team will be in touch to discuss the next steps and arrange a suitable trial.</p></div>
+    <div class="form-done hidden" id="tDone"><div class="big">✓</div><h3>Nearly done!</h3><p>WhatsApp has opened with your trial request written out — just press <b>send</b>. A member of the KC Coaching team will be in touch to discuss the next steps and arrange a suitable trial.</p><p><a class="btn btn-wa btn-sm" id="tAgain" target="_blank" rel="noopener">WhatsApp didn’t open? Tap here</a></p></div>
   </section>`;
 }
 function setTrialTeam(id){ const s=document.getElementById('tTeam'); if(s && s.querySelector(`option[value="${id}"]`)) s.value=id; updTrialWa(); }
 function trialMsg(){ const f=document.getElementById('trialForm'); if(!f) return ''; const v=SVC[f.dataset.k], t=f.querySelector('#tTeam');
-  return `Hi KC Coaching! I'd like to request a trial (${v.name}).\n\nTeam: ${t.options[t.selectedIndex].text}\nPlayer: ${val(f,'tPlayer')}${val(f,'tDob')?` (${val(f,'tDob')})`:''}\nParent/guardian: ${val(f,'tParent')}\nPhone: ${val(f,'tPhone')}\nEmail: ${val(f,'tEmail')}${val(f,'tExp')?`\nExperience: ${val(f,'tExp')}`:''}${val(f,'tNotes')?`\nNotes: ${val(f,'tNotes')}`:''}`; }
+  return `Hi KC Coaching! I'd like to request a trial (${v.name}).\n\nTeam: ${t.options[t.selectedIndex].text}\nPlayer: ${val(f,'tPlayer')}${val(f,'tDob')?` (${val(f,'tDob')})`:''}\nParent/guardian: ${val(f,'tParent')}\nPhone: ${val(f,'tPhone')}${val(f,'tEmail')?`\nEmail: ${val(f,'tEmail')}`:''}${val(f,'tExp')?`\nExperience: ${val(f,'tExp')}`:''}${val(f,'tNotes')?`\nNotes: ${val(f,'tNotes')}`:''}`; }
 function updTrialWa(){ const a=document.getElementById('tWa'); if(a) a.href=WA(trialMsg()); }
 
 function renderServicePage(k){
@@ -2268,16 +2259,11 @@ function renderServicePage(k){
   if(tf){
     tf.addEventListener('input',e=>{e.target.classList.remove('bad');e.target.parentElement.classList.remove('bad');updTrialWa();});
     tf.addEventListener('change',updTrialWa); updTrialWa();
-    tf.addEventListener('submit',async e=>{
+    tf.addEventListener('submit',e=>{
       e.preventDefault(); const err=document.getElementById('tErr');
-      if(!checkFields(tf,['tParent','tPhone','tEmail','tPlayer','tDob','tConsent'])){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }
-      err.classList.remove('show'); const btn=tf.querySelector('[type=submit]'), lbl=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
-      const t=tf.querySelector('#tTeam');
-      const ok=await sendForm(`Trial request: ${t.options[t.selectedIndex].text} – ${val(tf,'tPlayer')}`,
-        {name:val(tf,'tParent'),email:val(tf,'tEmail'),phone:val(tf,'tPhone'),player:val(tf,'tPlayer'),dob_or_year:val(tf,'tDob'),team:t.options[t.selectedIndex].text,experience:val(tf,'tExp'),notes:val(tf,'tNotes')}, trialMsg()).catch(()=>false);
-      btn.disabled=false; btn.textContent=lbl;
-      if(ok){ tf.classList.add('hidden'); document.getElementById('tDone').classList.remove('hidden'); }
-      else { err.textContent='Sorry — that didn’t send. Please use the WhatsApp button or call 07476 997864.'; err.classList.add('show'); }
+      if(!checkFields(tf,['tParent','tPhone','tPlayer','tDob','tConsent'])){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }
+      err.classList.remove('show'); const url=WA(trialMsg()); window.open(url,'_blank','noopener');
+      document.getElementById('tAgain').href=url; tf.classList.add('hidden'); document.getElementById('tDone').classList.remove('hidden');
     });
   }
   const nw=document.getElementById('newsWrap');

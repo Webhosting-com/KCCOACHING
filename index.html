@@ -1845,14 +1845,14 @@ function priceCards(){
   return ONE2ONE.plans.map(p=>{
     const save=(ONE2ONE.base-p.per)*p.sessions, pct=Math.round((ONE2ONE.base-p.per)/ONE2ONE.base*100);
     const yearly=p.id==='monthly'?Math.round((ONE2ONE.base-p.per)*48):0;
-    const link=p.id==='monthly'?(ONE2ONE_CFK?CFK(ONE2ONE_CFK):CFK_HOME):'#book/enquire/one2one';
+    const link=p.id==='monthly'?(ONE2ONE_CFK?CFK(ONE2ONE_CFK):CFK_HOME):'#book/enquire/one2one/'+p.sessions;
     return `<article class="price${p.feature?' pop':''}">${p.feature?'<span class="flag">BEST VALUE · MOST POPULAR</span>':''}
       <h3>${p.name}</h3>
       <div class="amt">${gbp2(p.price)}<small>${p.unit}</small></div>
       <div class="per"><b>${gbp2(p.per)}</b> per session</div>
       ${save>0?`<div class="save">Save ${pct}%${p.id==='monthly'?` · £${save} a month · £${yearly} a year`:` · £${save} vs 2 × blocks of 5`}</div>`:'<div class="save muted">Standard block rate</div>'}
       <ul>${p.inc.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
-      <a href="${link}" ${p.id==='monthly'?'target="_blank" rel="noopener"':''} class="btn ${p.feature?'btn-lime':'btn-ghost'} btn-sm">${p.id==='monthly'?'Start monthly plan ↗':'Enquire about a block'}</a>
+      <a href="${link}" ${p.id==='monthly'?'target="_blank" rel="noopener"':''} class="btn ${p.id==='monthly'?'btn-lime':'btn-wa'} btn-sm">${p.id==='monthly'?'Start monthly plan ↗':WA_ICON+' Get started today'}</a>
     </article>`;}).join('');
 }
 document.getElementById('priceGrid').innerHTML = priceCards();
@@ -2239,8 +2239,8 @@ function route(){
   }
   if(h.startsWith('book')){
     setView('booking');
-    const [,a,b]=h.split('/');
-    openBook(a,b);
+    const [,a,b,c]=h.split('/');
+    openBook(a,b,c);
     return;
   }
   setView(null);
@@ -2295,9 +2295,9 @@ function renderBook(){
 }
 document.getElementById('bkPriceGrid').innerHTML=priceCards();
 document.getElementById('bkFilters').addEventListener('click',e=>{const b=e.target.closest('[data-bk]');if(!b)return;bkFilter=b.dataset.bk;renderBook();});
-function openBook(a,b){
+function openBook(a,b,c){
   const ef=document.getElementById('enqForm');
-  if(a==='enquire'){ bkFilter='enquire'; renderBook(); if(b){ const o=ef.querySelector(`#eqType option[value="${b}"]`); if(o) ef.querySelector('#eqType').value=b; } eqToggle(); updEqWa();
+  if(a==='enquire'){ bkFilter='enquire'; renderBook(); if(b){ const o=ef.querySelector(`#eqType option[value="${b}"]`); if(o) ef.querySelector('#eqType').value=b; } if(c){ const pl=ef.querySelector('#eqPlan'), op=[...pl.options].find(x=>x.value.startsWith(c==='10'?'Block of 10':c==='5'?'Block of 5':'@')); if(op) pl.value=op.value; } eqToggle(); updEqWa();
     setTimeout(()=>document.getElementById('enquire').scrollIntoView(),0); return; }
   bkFilter=(a && (PROGS[a]||a==='one2one'))?a:'all'; renderBook(); window.scrollTo(0,0);
 }

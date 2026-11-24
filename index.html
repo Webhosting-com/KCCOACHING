@@ -804,6 +804,7 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
 .sp-vid{max-width:380px;margin-top:18px}.sp-vid video{width:100%;border-radius:14px;display:block;background:#000}.home-gal .hg-vid{grid-row:span 2;position:relative;overflow:hidden;background:#000;aspect-ratio:auto}.hg-vid video{width:100%;height:100%;object-fit:cover;display:block}.hg-vid a{position:absolute;left:10px;bottom:10px;background:#F9C069;color:#000;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;text-decoration:none}
 .eq121{border:2px solid var(--line);border-radius:16px;padding:18px 18px 4px;margin-bottom:16px;background:rgba(249,192,105,.08)}.eq121.hidden{display:none}.eq121-h{font-weight:800;margin:0 0 12px;text-transform:uppercase;font-size:.8rem;letter-spacing:.06em}
 .pills{display:flex;flex-wrap:wrap;gap:8px;border-radius:12px}.pills.bad{outline:2px solid #e5484d;outline-offset:4px}.pill{cursor:pointer}.pill input{position:absolute;opacity:0;pointer-events:none}.pill span{display:inline-block;padding:9px 14px;border:2px solid var(--line);border-radius:999px;font-weight:700;font-size:.85rem;background:var(--chalk)}.pill input:checked+span{background:#000;color:#F9C069;border-color:#000}.pill input:focus-visible+span{outline:2px solid #F9C069}
+.eq-cfk{background:#000;color:#fff;border-radius:14px;padding:16px;margin-bottom:16px}.eq-cfk p{margin:0 0 12px;font-size:.92rem}.eq-hide-mo.hidden,#eq121more.hidden,.eq-cfk.hidden{display:none!important}
 </style>
 </head>
 <body>
@@ -1405,28 +1406,28 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
             <option value="schools">Schools &amp; partnerships</option>
             <option value="other">Something else</option>
           </select></div>
-        <div class="row2">
+        <div class="eq-hide-mo row2">
           <div class="field"><label for="eqName">Your name</label><input id="eqName" autocomplete="name" required></div>
           <div class="field"><label for="eqPhone">Mobile number</label><input id="eqPhone" type="tel" autocomplete="tel" required></div>
         </div>
-        <div class="field"><label for="eqEmail">Email <span class="opt">(optional)</span></label><input id="eqEmail" type="email" autocomplete="email"></div>
-        <div class="row2">
+        <div class="eq-hide-mo field"><label for="eqEmail">Email <span class="opt">(optional)</span></label><input id="eqEmail" type="email" autocomplete="email"></div>
+        <div class="eq-hide-mo row2">
           <div class="field"><label for="eqPlayer">Player's name <span class="opt">(or "myself")</span></label><input id="eqPlayer"></div>
           <div class="field"><label for="eqAge">Player's age <span class="opt" id="eqAgeOpt">(optional)</span></label><input id="eqAge" inputmode="numeric"></div>
         </div>
         <div id="eq121" class="eq121">
           <p class="eq121-h">1-to-1 booking details</p>
-          <div class="row2">
-            <div class="field"><label for="eqPlan">Package</label><select id="eqPlan">
+          <div class="field"><label for="eqPlan">Package</label><select id="eqPlan">
               <option value="">Choose a package…</option>
-              <option>Monthly subscription — 4 sessions for £122</option>
+              <option value="Monthly subscription — 4 sessions for £122" data-monthly>Monthly subscription — 4 sessions for £122 (book on ClassForKids)</option>
               <option>Block of 5 sessions — £170</option>
               <option>Block of 10 sessions — £320</option>
               <option>Single trial session / not sure yet</option></select></div>
-            <div class="field"><label for="eqLevel">Playing level</label><select id="eqLevel">
+          <div id="eqCfk" class="eq-cfk hidden"><p><b>Great choice!</b> The monthly subscription (4 sessions for £122) is booked and paid securely on ClassForKids, where you choose your sessions.</p><a class="btn btn-lime btn-sm" id="eqCfkBtn" target="_blank" rel="noopener">Book monthly on ClassForKids →</a></div>
+          <div id="eq121more">
+          <div class="field"><label for="eqLevel">Playing level</label><select id="eqLevel">
               <option value="">Choose…</option>
               <option>Beginner</option><option>Grassroots club player</option><option>JPL / academy player</option><option>Adult / returning player</option></select></div>
-          </div>
           <div class="field"><label>Preferred days <span class="opt">(tick all that suit)</span></label><div class="pills" id="eqDays"><label class="pill"><input type="checkbox" name="eqDay" value="Mon"><span>Mon</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Tue"><span>Tue</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Wed"><span>Wed</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Thu"><span>Thu</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Fri"><span>Fri</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Sat"><span>Sat</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Sun"><span>Sun</span></label></div></div>
           <div class="field"><label>Preferred times <span class="opt">(tick all that suit)</span></label><div class="pills" id="eqTimes"><label class="pill"><input type="checkbox" name="eqTime" value="Morning (before 12pm)"><span>Morning (before 12pm)</span></label><label class="pill"><input type="checkbox" name="eqTime" value="Afternoon (12–3pm)"><span>Afternoon (12–3pm)</span></label><label class="pill"><input type="checkbox" name="eqTime" value="After school (3–6pm)"><span>After school (3–6pm)</span></label><label class="pill"><input type="checkbox" name="eqTime" value="Evening (6pm+)"><span>Evening (6pm+)</span></label></div></div>
           <div class="row2">
@@ -1435,11 +1436,12 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
           </div>
           <div class="field"><label for="eqGoals">What would you like to work on?</label><input id="eqGoals" placeholder="e.g. finishing, 1v1s, first touch, confidence, fitness"></div>
           <div class="field"><label for="eqMed">Medical info / additional needs <span class="opt">(write “None” if none)</span></label><textarea id="eqMed" placeholder="Allergies, asthma, injuries, SEN or anything we should know…" style="min-height:70px"></textarea></div>
+          </div>
         </div>
-        <div class="field"><label for="eqMsg">How can we help?</label><textarea id="eqMsg" placeholder="Goals, preferred days and times, medical or additional needs…"></textarea></div>
-        <label class="check"><input type="checkbox" id="eqConsent"> I agree to KC Coaching contacting me about this enquiry, as set out in the <a href="#" data-privacy>privacy notice</a>.</label>
+        <div class="eq-hide-mo field"><label for="eqMsg">How can we help?</label><textarea id="eqMsg" placeholder="Goals, preferred days and times, medical or additional needs…"></textarea></div>
+        <label class="eq-hide-mo check"><input type="checkbox" id="eqConsent"> I agree to KC Coaching contacting me about this enquiry, as set out in the <a href="#" data-privacy>privacy notice</a>.</label>
         <p class="err" id="eqErr">Please complete the highlighted fields.</p>
-        <div class="form-actions"><button type="submit" class="btn btn-wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 01-2.4-1.5 9 9 0 01-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 00-.8.4 3.4 3.4 0 00-1 2.5 6 6 0 001.2 3.1 13.4 13.4 0 005.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 002-1.4 2.5 2.5 0 00.2-1.4c0-.1-.3-.2-.6-.4zM12 21.8a9.9 9.9 0 01-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1112 21.8zM12 0a12 12 0 00-10.3 18L0 24l6.2-1.6A12 12 0 1012 0z"/></svg> Send enquiry on WhatsApp</button><a id="eqWa" hidden></a></div>
+        <div class="eq-hide-mo form-actions"><button type="submit" class="btn btn-wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 01-2.4-1.5 9 9 0 01-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 00-.8.4 3.4 3.4 0 00-1 2.5 6 6 0 001.2 3.1 13.4 13.4 0 005.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 002-1.4 2.5 2.5 0 00.2-1.4c0-.1-.3-.2-.6-.4zM12 21.8a9.9 9.9 0 01-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1112 21.8zM12 0a12 12 0 00-10.3 18L0 24l6.2-1.6A12 12 0 1012 0z"/></svg> Send enquiry on WhatsApp</button><a id="eqWa" hidden></a></div>
       </form>
       <div class="form-done hidden" id="eqDone"><div class="big">✓</div><h3>Nearly done!</h3><p>WhatsApp has opened with your enquiry written out — just press <b>send</b>. A member of the KC Coaching team will reply shortly.</p><p><a class="btn btn-wa btn-sm" id="eqAgain" target="_blank" rel="noopener">WhatsApp didn’t open? Tap here</a></p></div>
     </section>
@@ -2310,13 +2312,18 @@ function eqMsg(){ const f=enqForm, t=f.querySelector('#eqType'), v=id=>val(f,id)
     m+=`\n\n— 1-to-1 details —${v('eqPlan')?`\nPackage: ${v('eqPlan')}`:''}${v('eqLevel')?`\nLevel: ${v('eqLevel')}`:''}${d.length?`\nPreferred days: ${d.join(', ')}`:''}${tm.length?`\nPreferred times: ${tm.join(', ')}`:''}${v('eqClub')?`\nClub/position: ${v('eqClub')}`:''}${v('eqArea')?`\nArea/venue: ${v('eqArea')}`:''}${v('eqGoals')?`\nFocus: ${v('eqGoals')}`:''}\nMedical/additional needs: ${v('eqMed')||'—'}`; }
   if(v('eqMsg')) m+=`\n\n${v('eqMsg')}`;
   return m; }
-function eqToggle(){ const on=IS121(enqForm.querySelector('#eqType').value); document.getElementById('eq121').classList.toggle('hidden',!on); document.getElementById('eqAgeOpt').textContent=on?'':'(optional)'; }
+const isMonthly=()=>!!enqForm.querySelector('#eqPlan option:checked[data-monthly]');
+function eqToggle(){ const on=IS121(enqForm.querySelector('#eqType').value), mo=on&&isMonthly();
+  document.getElementById('eqCfk').classList.toggle('hidden',!mo); document.getElementById('eq121more').classList.toggle('hidden',mo);
+  document.getElementById('eqCfkBtn').href=ONE2ONE_CFK?CFK(ONE2ONE_CFK):CFK_HOME;
+  enqForm.querySelectorAll('.eq-hide-mo').forEach(e=>e.classList.toggle('hidden',mo)); document.getElementById('eq121').classList.toggle('hidden',!on); document.getElementById('eqAgeOpt').textContent=on?'':'(optional)'; }
 function updEqWa(){ document.getElementById('eqWa').href=WA(eqMsg()); }
 enqForm.addEventListener('input',e=>{const pg=e.target.closest('.pills'); if(pg) pg.classList.remove('bad'); e.target.classList.remove('bad');e.target.parentElement.classList.remove('bad');updEqWa();});
 enqForm.addEventListener('change',()=>{eqToggle();updEqWa();}); eqToggle(); updEqWa();
 enqForm.addEventListener('submit',e=>{
   e.preventDefault(); const err=document.getElementById('eqErr');
   const is121=IS121(enqForm.querySelector('#eqType').value);
+  if(is121&&isMonthly()){ window.open(document.getElementById('eqCfkBtn').href,'_blank','noopener'); return; }
   let ok=checkFields(enqForm,is121?['eqName','eqPhone','eqAge','eqPlan','eqMed','eqConsent']:['eqName','eqPhone','eqConsent']);
   if(is121){ const dOk=ticks('eqDay').length>0, tOk=ticks('eqTime').length>0; document.getElementById('eqDays').classList.toggle('bad',!dOk); document.getElementById('eqTimes').classList.toggle('bad',!tOk); ok=ok&&dOk&&tOk; }
   if(!ok){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }

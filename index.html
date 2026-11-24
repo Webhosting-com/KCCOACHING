@@ -802,6 +802,8 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
 .sp-gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}.sp-gal div{aspect-ratio:4/3;background-size:cover;background-position:center;background-position:center 30%;border-radius:14px}@media(max-width:700px){.sp-gal{grid-template-columns:1fr}}
 .home-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}.home-gal div{aspect-ratio:1;background-size:cover;background-position:center 30%;border-radius:12px}@media(max-width:900px){.home-gal{grid-template-columns:repeat(2,1fr)}}
 .sp-vid{max-width:380px;margin-top:18px}.sp-vid video{width:100%;border-radius:14px;display:block;background:#000}.home-gal .hg-vid{grid-row:span 2;position:relative;overflow:hidden;background:#000;aspect-ratio:auto}.hg-vid video{width:100%;height:100%;object-fit:cover;display:block}.hg-vid a{position:absolute;left:10px;bottom:10px;background:#F9C069;color:#000;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;text-decoration:none}
+.eq121{border:2px solid var(--line);border-radius:16px;padding:18px 18px 4px;margin-bottom:16px;background:rgba(249,192,105,.08)}.eq121.hidden{display:none}.eq121-h{font-weight:800;margin:0 0 12px;text-transform:uppercase;font-size:.8rem;letter-spacing:.06em}
+.pills{display:flex;flex-wrap:wrap;gap:8px;border-radius:12px}.pills.bad{outline:2px solid #e5484d;outline-offset:4px}.pill{cursor:pointer}.pill input{position:absolute;opacity:0;pointer-events:none}.pill span{display:inline-block;padding:9px 14px;border:2px solid var(--line);border-radius:999px;font-weight:700;font-size:.85rem;background:var(--chalk)}.pill input:checked+span{background:#000;color:#F9C069;border-color:#000}.pill input:focus-visible+span{outline:2px solid #F9C069}
 </style>
 </head>
 <body>
@@ -1394,7 +1396,7 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
       <form id="enqForm" novalidate>
         <div class="field"><label for="eqType">What are you enquiring about?</label>
           <select id="eqType">
-            <option value="one2one">1-to-1 coaching (block of 5 or 10)</option>
+            <option value="one2one">1-to-1 coaching (children)</option>
             <option value="adult">1-to-1 coaching for adults</option>
             <option value="gk121">Goalkeeper 1-to-1 coaching</option>
             <option value="afterschool">After-school clubs</option>
@@ -1410,7 +1412,29 @@ body.shopping #service-view,body.blogging #service-view,body.booking #service-vi
         <div class="field"><label for="eqEmail">Email <span class="opt">(optional)</span></label><input id="eqEmail" type="email" autocomplete="email"></div>
         <div class="row2">
           <div class="field"><label for="eqPlayer">Player's name <span class="opt">(or "myself")</span></label><input id="eqPlayer"></div>
-          <div class="field"><label for="eqAge">Player's age <span class="opt">(optional)</span></label><input id="eqAge" inputmode="numeric"></div>
+          <div class="field"><label for="eqAge">Player's age <span class="opt" id="eqAgeOpt">(optional)</span></label><input id="eqAge" inputmode="numeric"></div>
+        </div>
+        <div id="eq121" class="eq121">
+          <p class="eq121-h">1-to-1 booking details</p>
+          <div class="row2">
+            <div class="field"><label for="eqPlan">Package</label><select id="eqPlan">
+              <option value="">Choose a package…</option>
+              <option>Monthly subscription — 4 sessions for £122</option>
+              <option>Block of 5 sessions — £170</option>
+              <option>Block of 10 sessions — £320</option>
+              <option>Single trial session / not sure yet</option></select></div>
+            <div class="field"><label for="eqLevel">Playing level</label><select id="eqLevel">
+              <option value="">Choose…</option>
+              <option>Beginner</option><option>Grassroots club player</option><option>JPL / academy player</option><option>Adult / returning player</option></select></div>
+          </div>
+          <div class="field"><label>Preferred days <span class="opt">(tick all that suit)</span></label><div class="pills" id="eqDays"><label class="pill"><input type="checkbox" name="eqDay" value="Mon"><span>Mon</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Tue"><span>Tue</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Wed"><span>Wed</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Thu"><span>Thu</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Fri"><span>Fri</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Sat"><span>Sat</span></label><label class="pill"><input type="checkbox" name="eqDay" value="Sun"><span>Sun</span></label></div></div>
+          <div class="field"><label>Preferred times <span class="opt">(tick all that suit)</span></label><div class="pills" id="eqTimes"><label class="pill"><input type="checkbox" name="eqTime" value="Morning (before 12pm)"><span>Morning (before 12pm)</span></label><label class="pill"><input type="checkbox" name="eqTime" value="Afternoon (12–3pm)"><span>Afternoon (12–3pm)</span></label><label class="pill"><input type="checkbox" name="eqTime" value="After school (3–6pm)"><span>After school (3–6pm)</span></label><label class="pill"><input type="checkbox" name="eqTime" value="Evening (6pm+)"><span>Evening (6pm+)</span></label></div></div>
+          <div class="row2">
+            <div class="field"><label for="eqClub">Current club &amp; position <span class="opt">(optional)</span></label><input id="eqClub" placeholder="e.g. Longford U11, winger"></div>
+            <div class="field"><label for="eqArea">Preferred area / venue <span class="opt">(optional)</span></label><input id="eqArea" placeholder="e.g. Gloucester, Cheltenham"></div>
+          </div>
+          <div class="field"><label for="eqGoals">What would you like to work on?</label><input id="eqGoals" placeholder="e.g. finishing, 1v1s, first touch, confidence, fitness"></div>
+          <div class="field"><label for="eqMed">Medical info / additional needs <span class="opt">(write “None” if none)</span></label><textarea id="eqMed" placeholder="Allergies, asthma, injuries, SEN or anything we should know…" style="min-height:70px"></textarea></div>
         </div>
         <div class="field"><label for="eqMsg">How can we help?</label><textarea id="eqMsg" placeholder="Goals, preferred days and times, medical or additional needs…"></textarea></div>
         <label class="check"><input type="checkbox" id="eqConsent"> I agree to KC Coaching contacting me about this enquiry, as set out in the <a href="#" data-privacy>privacy notice</a>.</label>
@@ -2271,20 +2295,31 @@ document.getElementById('bkPriceGrid').innerHTML=priceCards();
 document.getElementById('bkFilters').addEventListener('click',e=>{const b=e.target.closest('[data-bk]');if(!b)return;bkFilter=b.dataset.bk;renderBook();});
 function openBook(a,b){
   const ef=document.getElementById('enqForm');
-  if(a==='enquire'){ bkFilter='enquire'; renderBook(); if(b){ const o=ef.querySelector(`#eqType option[value="${b}"]`); if(o) ef.querySelector('#eqType').value=b; } updEqWa();
+  if(a==='enquire'){ bkFilter='enquire'; renderBook(); if(b){ const o=ef.querySelector(`#eqType option[value="${b}"]`); if(o) ef.querySelector('#eqType').value=b; } eqToggle(); updEqWa();
     setTimeout(()=>document.getElementById('enquire').scrollIntoView(),0); return; }
   bkFilter=(a && (PROGS[a]||a==='one2one'))?a:'all'; renderBook(); window.scrollTo(0,0);
 }
 
 /* enquiry form */
 const enqForm=document.getElementById('enqForm');
-function eqMsg(){ const f=enqForm, t=f.querySelector('#eqType'); return `Hi KC Coaching! Enquiry: ${t.options[t.selectedIndex].text}\n\nName: ${val(f,'eqName')}\nPhone: ${val(f,'eqPhone')}${val(f,'eqEmail')?`\nEmail: ${val(f,'eqEmail')}`:''}${val(f,'eqPlayer')?`\nPlayer: ${val(f,'eqPlayer')}${val(f,'eqAge')?` (age ${val(f,'eqAge')})`:''}`:''}${val(f,'eqMsg')?`\n\n${val(f,'eqMsg')}`:''}`; }
+const IS121=t=>['one2one','adult','gk121'].includes(t);
+const ticks=n=>[...enqForm.querySelectorAll(`input[name="${n}"]:checked`)].map(i=>i.value);
+function eqMsg(){ const f=enqForm, t=f.querySelector('#eqType'), v=id=>val(f,id);
+  let m=`Hi KC Coaching! Enquiry: ${t.options[t.selectedIndex].text}\n\nName: ${v('eqName')}\nPhone: ${v('eqPhone')}${v('eqEmail')?`\nEmail: ${v('eqEmail')}`:''}${v('eqPlayer')?`\nPlayer: ${v('eqPlayer')}`:''}${v('eqAge')?`\nAge: ${v('eqAge')}`:''}`;
+  if(IS121(t.value)){ const d=ticks('eqDay'), tm=ticks('eqTime');
+    m+=`\n\n— 1-to-1 details —${v('eqPlan')?`\nPackage: ${v('eqPlan')}`:''}${v('eqLevel')?`\nLevel: ${v('eqLevel')}`:''}${d.length?`\nPreferred days: ${d.join(', ')}`:''}${tm.length?`\nPreferred times: ${tm.join(', ')}`:''}${v('eqClub')?`\nClub/position: ${v('eqClub')}`:''}${v('eqArea')?`\nArea/venue: ${v('eqArea')}`:''}${v('eqGoals')?`\nFocus: ${v('eqGoals')}`:''}\nMedical/additional needs: ${v('eqMed')||'—'}`; }
+  if(v('eqMsg')) m+=`\n\n${v('eqMsg')}`;
+  return m; }
+function eqToggle(){ const on=IS121(enqForm.querySelector('#eqType').value); document.getElementById('eq121').classList.toggle('hidden',!on); document.getElementById('eqAgeOpt').textContent=on?'':'(optional)'; }
 function updEqWa(){ document.getElementById('eqWa').href=WA(eqMsg()); }
-enqForm.addEventListener('input',e=>{e.target.classList.remove('bad');e.target.parentElement.classList.remove('bad');updEqWa();});
-enqForm.addEventListener('change',updEqWa); updEqWa();
+enqForm.addEventListener('input',e=>{const pg=e.target.closest('.pills'); if(pg) pg.classList.remove('bad'); e.target.classList.remove('bad');e.target.parentElement.classList.remove('bad');updEqWa();});
+enqForm.addEventListener('change',()=>{eqToggle();updEqWa();}); eqToggle(); updEqWa();
 enqForm.addEventListener('submit',e=>{
   e.preventDefault(); const err=document.getElementById('eqErr');
-  if(!checkFields(enqForm,['eqName','eqPhone','eqConsent'])){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }
+  const is121=IS121(enqForm.querySelector('#eqType').value);
+  let ok=checkFields(enqForm,is121?['eqName','eqPhone','eqAge','eqPlan','eqMed','eqConsent']:['eqName','eqPhone','eqConsent']);
+  if(is121){ const dOk=ticks('eqDay').length>0, tOk=ticks('eqTime').length>0; document.getElementById('eqDays').classList.toggle('bad',!dOk); document.getElementById('eqTimes').classList.toggle('bad',!tOk); ok=ok&&dOk&&tOk; }
+  if(!ok){ err.textContent='Please complete the highlighted fields.'; err.classList.add('show'); return; }
   err.classList.remove('show'); const url=WA(eqMsg()); window.open(url,'_blank','noopener');
   document.getElementById('eqAgain').href=url; enqForm.classList.add('hidden'); document.getElementById('eqDone').classList.remove('hidden');
 });
@@ -2345,7 +2380,7 @@ function renderServicePage(k){
   <div class="wrap sp-body">
     <section class="sp-sec"><span class="eyebrow">What players can expect</span>
       <div class="expect-grid">${v.expect.map(x=>`<div class="exp"><span class="tick">✓</span><span>${esc(x)}</span></div>`).join('')}</div></section>`;
-  if(v.video) h+=`<section class="sp-sec"><span class="eyebrow">Watch</span><h2>Inside a 1-to-1 session</h2><div class="sp-vid"><video src="${v.video}" poster="${v.video.replace('.mp4','.jpg')}" controls playsinline preload="none"></video></div></section>`;
+  if(v.video) h+=`<section class="sp-sec"><span class="eyebrow">Watch</span><h2>Inside a 1-to-1 session</h2><div class="sp-vid"><video src="${v.video}" poster="${v.video.replace('.mp4','.jpg')}" controls muted playsinline preload="none"></video></div></section>`;
   if(v.gallery) h+=`<section class="sp-sec"><span class="eyebrow">Gallery</span><h2>${v.galTitle||'Highlights'}</h2><div class="sp-gal">${v.gallery.map(f=>`<div style="background-image:url('${LOCAL_IMG[f]}')"></div>`).join('')}</div></section>`;
   if(sessions.length) h+=`<section class="sp-sec"><span class="eyebrow">Times &amp; venues</span><h2>Book a session</h2>
       <p class="sp-note">Book or start a free trial securely on ClassForKids. ${weeklyPrice(v.prog).includes('tbc')?'':'Monthly subscription: '+weeklyPrice(v.prog)+'.'}</p>
